@@ -68,4 +68,8 @@ public class AddressBookMain {
 			String phoneNo, String email) throws AddressBookException {
 		record.add(bookDBobj.addContactToRecord(firstName, lastName, address, city, state, zipCode, phoneNo, email));
 	}
+	
+	public void addMultipleContactsToRecord(List<Contacts> record) {
+		bookDBobj.addMultipleContactsToRecord(record);
+	}
 }
