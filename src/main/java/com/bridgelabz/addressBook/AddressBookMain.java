@@ -57,4 +57,9 @@ public class AddressBookMain {
 		List<Contacts> record = bookDBobj.getRecordsAddedInGivenDateRange(date1, date2);
 		return record;
 	}
+	
+	public List<Contacts> getRecordsByCityOrState(String city, String state) {
+		List<Contacts> record = bookDBobj.getRecordsByCityOrState(city, state);
+		return record;
+	}
 }
