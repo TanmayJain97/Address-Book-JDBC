@@ -52,4 +52,9 @@ public class AddressBookMain {
 		List<Contacts> checkList = bookDBobj.getRecordDataByName(FirstName);
 		return checkList.get(0).equals(getRecordDataByName(FirstName));
 	}
+	
+	public List<Contacts> getRecordAddedInDateRange(String date1, String date2) {
+		List<Contacts> record = bookDBobj.getRecordsAddedInGivenDateRange(date1, date2);
+		return record;
+	}
 }

@@ -1,6 +1,7 @@
 package com.bridgelabz.addressBook.io;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,7 +71,8 @@ public class AddressBookDBIO {
 				Long zipCode = resultSet.getLong("ZIPCODE");
 				String phoneNumber = resultSet.getString("PHONE");
 				String emailId = resultSet.getString("EMAIL");
-				contactList.add(new Contacts(firstName, lastName, address, city, state, zipCode, phoneNumber, emailId));
+				LocalDate dateAdded = (LocalDate) resultSet.getDate("DATE_ADDED").toLocalDate();
+				contactList.add(new Contacts(firstName, lastName, address, city, state, zipCode, phoneNumber, emailId, dateAdded));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -102,5 +104,10 @@ public class AddressBookDBIO {
 			exception.printStackTrace();
 		}
 		return 0;
+	}
+	
+	public List<Contacts> getRecordsAddedInGivenDateRange(String date1, String date2) {
+		String query = String.format("SELECT * FROM address_book WHERE DATE_ADDED BETWEEN '%s' AND '%s';", date1, date2);
+		return this.getAddressBookData(query);
 	}
 }

@@ -1,5 +1,7 @@
 package com.bridgelabz.addressBook.Models;
 
+import java.time.LocalDate;
+
 public class Contacts {
 	
 
@@ -11,6 +13,7 @@ public class Contacts {
 	public long zipCode;
 	public String phoneNo;
 	public String email;
+	public LocalDate dateAdded;
 	
 	public Contacts(String firstName, String lastName, String address,
 			String city, String state, long zipCode,
@@ -25,6 +28,13 @@ public class Contacts {
 		this.email = email;
 	}
 	
+	public Contacts(String firstName, String lastName, String address, String city, String state, long zipCode,
+			String phoneNo, String email, LocalDate dateAdded) {
+		this(firstName, lastName, address, city,
+				state, zipCode, phoneNo, email);
+		this.dateAdded = dateAdded;
+	}
+
 	public void display() {				//Method for displaying all details
 		
 		System.out.println("------------------------------------------------------");
