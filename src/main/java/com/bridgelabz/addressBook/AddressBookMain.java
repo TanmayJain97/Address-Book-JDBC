@@ -1,5 +1,6 @@
 package com.bridgelabz.addressBook;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.bridgelabz.addressBook.Exception.AddressBookException;
@@ -61,5 +62,10 @@ public class AddressBookMain {
 	public List<Contacts> getRecordsByCityOrState(String city, String state) {
 		List<Contacts> record = bookDBobj.getRecordsByCityOrState(city, state);
 		return record;
+	}
+	
+	public void addContactToRecord(String firstName, String lastName, String address, String city, String state, long zipCode,
+			String phoneNo, String email) throws AddressBookException {
+		record.add(bookDBobj.addContactToRecord(firstName, lastName, address, city, state, zipCode, phoneNo, email));
 	}
 }

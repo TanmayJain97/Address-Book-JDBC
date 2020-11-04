@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bridgelabz.addressBook.Exception.AddressBookException;
+import com.bridgelabz.addressBook.Exception.AddressBookException.ExceptionType;
 import com.bridgelabz.addressBook.Models.Contacts;
 
 public class AddressBookDBIO {
@@ -114,5 +116,37 @@ public class AddressBookDBIO {
 	public List<Contacts> getRecordsByCityOrState(String city, String state) {
 		String query = String.format("SELECT * FROM address_book WHERE CITY='%s' OR STATE='%s';", city, state);
 		return this.getAddressBookData(query);
+	}
+	
+	public Contacts addContactToRecord(String firstName, String lastName, String address, String city, String state, long zipCode,
+			String phoneNo, String email) throws AddressBookException {
+		int contactId = -1;
+		Connection connection = null;
+		Contacts addressBookData = null;
+		try {
+			connection = this.getConnection();
+			connection.setAutoCommit(false);
+		}catch(SQLException exception) {
+			exception.printStackTrace();
+		}
+		try(Statement statement = connection.createStatement()){
+			String query = String.format("INSERT INTO address_book VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s')",
+					firstName, lastName, address, city, state, Long.valueOf(zipCode),
+					phoneNo, email, LocalDate.now());
+			int rowAffected = statement.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+			if(rowAffected==1) {
+				ResultSet resultSet = statement.getGeneratedKeys();
+				if(resultSet.next()) contactId =  resultSet.getInt(1);
+			}
+		} catch (SQLException exception) {
+			try {
+				connection.rollback();
+				return addressBookData;
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+			throw new AddressBookException(ExceptionType.INSERTION_FAIL, "Insertion to DB failed");
+		}
+		return addressBookData;
 	}
 }

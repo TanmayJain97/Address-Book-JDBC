@@ -3,6 +3,7 @@ package com.bridgelabz.addressBook;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.bridgelabz.addressBook.Exception.AddressBookException;
@@ -40,5 +41,12 @@ public class AddressBookTest {
 	public void givenCityOrState_WhenRetrieved_ShouldReturnProperData() throws AddressBookException {
 		List<Contacts> recordDataByCityState = addressBookFunction.getRecordsByCityOrState("Jaipur", "Rajasthan");
 		assertEquals(2, recordDataByCityState.size());
+	}
+	
+	@Test
+	public void givenNewContact_WhenAdded_ShouldSyncWithDB() throws AddressBookException {
+		addressBookFunction.addContactToRecord("Avnish", "Prabhakar", "Mall Road",
+				"Gurugram", "Haryana", 245694, "8456215596", "av.prabhakar@hotmail.com");
+		assertTrue(addressBookFunction.checkAddressBookInSyncWithDB("Avnish"));
 	}
 }
