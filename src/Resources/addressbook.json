@@ -1,0 +1,59 @@
+{
+  "addressbook": [
+  {
+  "firstName": "Tanmay",
+  "lastName": "Jain",
+  "address": "Mahaveer Nagar",
+  "city": "Jaipur",
+  "state": "Raj",
+  "zipCode": 302011,
+  "phoneNo": "9765485884",
+  "email": "mail.tanmay@gmail.com",
+  "dateAdded": "2020-11-01"
+	},
+	{
+  "firstName": "Narendra",
+  "lastName": "Modi",
+  "address": "PMO",
+  "city": "New Delhi",
+  "state": "Delhi",
+  "zipCode": 114102,
+  "phoneNo": "9765422564",
+  "email": "pmo@office.com",
+  "dateAdded": "2020-10-08"
+	},
+	{
+  "firstName": "Akhil",
+  "lastName": "Shrotriya",
+  "address": "Pingal Marg",
+  "city": "Rohtak",
+  "state": "Haryana",
+  "zipCode": 123002,
+  "phoneNo": "8465216975",
+  "email": "akshrotriya@gmail.com",
+  "dateAdded": "2020-11-05"
+	},
+	{
+  "firstName": "Donal",
+  "lastName": "Trump",
+  "address": "White House",
+  "city": "Washington",
+  "state": "Washington DC",
+  "zipCode": 100001,
+  "phoneNo": "9999999999",
+  "email": "pm@gmai.com",
+  "dateAdded": "2020-11-05"
+	},
+	{
+  "firstName": "Ravi",
+  "lastName": "Kumar",
+  "address": "JLN Marg",
+  "city": "Sampak",
+  "state": "MP",
+  "zipCode": 230056,
+  "phoneNo": "9648515621",
+  "email": "rkboi@yahoo.com",
+  "dateAdded": "2020-11-05"
+	}
+	]
+}
