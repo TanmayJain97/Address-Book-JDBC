@@ -31,7 +31,7 @@ public class AddressBookMain {
 		return record;
 	}
 	
-	private Contacts getRecordDataByName(String firstName) {
+	public Contacts getRecordDataByName(String firstName) {
 		Contacts contactData = this.record.stream()
 				.filter(contact->contact.firstName.equals(firstName))
 				.findFirst()
@@ -73,5 +73,10 @@ public class AddressBookMain {
 	
 	public void addMultipleContactsToRecord(List<Contacts> record) {
 		bookDBobj.addMultipleContactsToRecord(record);
+	}
+	
+	public void updateRecordInServer(String firstName, String address) throws AddressBookException {
+		Contacts contact =  this.getRecordDataByName(firstName);
+		if(contact!=null) contact.address=address;
 	}
 }
