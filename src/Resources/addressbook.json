@@ -12,17 +12,6 @@
   "dateAdded": "2020-11-01"
 	},
 	{
-  "firstName": "Narendra",
-  "lastName": "Modi",
-  "address": "PMO",
-  "city": "New Delhi",
-  "state": "Delhi",
-  "zipCode": 114102,
-  "phoneNo": "9765422564",
-  "email": "pmo@office.com",
-  "dateAdded": "2020-10-08"
-	},
-	{
   "firstName": "Akhil",
   "lastName": "Shrotriya",
   "address": "Pingal Marg",

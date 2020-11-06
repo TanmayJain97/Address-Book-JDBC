@@ -79,4 +79,8 @@ public class AddressBookMain {
 		Contacts contact =  this.getRecordDataByName(firstName);
 		if(contact!=null) contact.address=address;
 	}
+
+	public void deleteFromServer(String firstName) {
+		record.remove(getRecordDataByName(firstName));
+	}
 }
