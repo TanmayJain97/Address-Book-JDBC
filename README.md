@@ -1,3 +1,3 @@
 # Address-Book-JDBC
 
-Modified to UC 24 - Ability to Update Entry in Address Book JSONServer and sync with Address Book Application
+Modified to UC 24 - Ability to Delete Entry in AddressBook JSONServer and sync with AddressBook Application
