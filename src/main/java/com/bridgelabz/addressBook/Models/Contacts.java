@@ -103,4 +103,31 @@ public class Contacts {
 			return false;
 		return true;
 	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public long getZipCode() {
+		return zipCode;
+	}
+
+	public void setZipCode(long zipCode) {
+		this.zipCode = zipCode;
+	}
+	
+	public String pushDataToFile() {
+		return firstName+":"+lastName+":"+address+":"+city+":"+state
+				+":"+zipCode+":"+phoneNo+":"+email;
+	}
+	
+	public String[] pushDataCSV() {
+		String[] dataStr={firstName, lastName, address, city, state
+				, Long.toString(zipCode), phoneNo, email};
+		return dataStr;
+	}
 }
